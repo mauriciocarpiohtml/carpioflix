@@ -9,8 +9,10 @@ const MarcoPeli  = styled(motion.div)`
     border-radius:8px;
     transition-property: all;
     transition-duration: .4s;
+    
+    
     :hover{
-        transform: scale(1.2);
+        transform: scale(1.1);
         
     }
     `
@@ -20,14 +22,28 @@ height: 100%;
 width: 100%;
 border-radius:8px;
 pointer-events: none;
+position: relative;
 `
 
+
+
 function Pelicula({movie}) {
-    console.log(movie)
+
+  
   return (
-    <MarcoPeli>
+  
+    <MarcoPeli >
       <ImagenPelicula src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
+      
     </MarcoPeli>
+
+      
+
+
+
+
+      
+  
   )
 }
 

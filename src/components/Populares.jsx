@@ -1,21 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { motion } from "framer-motion"
-import Pelicula from './Pelicula'
+import SliderMovies from './SliderMovies'
 
-const Contenedor = styled(motion.div)`
-margin: 0 auto;
- width: 95%; 
 
-/* min-height: 160px; */
-overflow: hidden;
-`
-const Slider = styled(motion.div)`
-cursor: grab;
-display: flex;
-gap: 18px;
-`
 const TextoPopulares = styled.h3`
 color: #e5e5e5;
 font-weight: 700;
@@ -24,9 +12,10 @@ font-size: 16px;
 margin-left: 45px;
 `
 
-function Populares() {
+function Populares({detectarPelicula}) {
 
     const [peliculasArray, setPeliculasArray] = useState([])
+    
 
     useEffect(() => {
         async function cargarTendencias(){
@@ -34,8 +23,9 @@ function Populares() {
             const respuesta = await fetch(url)
             const resultado = await respuesta.json()
             const peliculas = resultado.results
-            const top10 = peliculas.splice(0, 10)
-            setPeliculasArray(top10)
+            const top10 = peliculas.splice(0, 15)
+          
+           setPeliculasArray(top10)
             
         }
         cargarTendencias()
@@ -44,16 +34,10 @@ function Populares() {
       // asi se hace la peticion a la imagen https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
   return (
     <>
-    <TextoPopulares>Las 10 mas populares en Argentina</TextoPopulares>
-    <Contenedor>
-      <Slider drag='x' dragConstraints={{right:0, left:-1418}}>
-      {peliculasArray.map((movie=>
-        <Pelicula 
-        movie={movie}
-        key={movie.id}/>))}
-      </Slider>
-      
-    </Contenedor>
+    <TextoPopulares>Top en Argentina</TextoPopulares>
+    <SliderMovies 
+      peliculasArray= {peliculasArray}
+      detectarPelicula= {detectarPelicula}/>
     </>
   )
 }
