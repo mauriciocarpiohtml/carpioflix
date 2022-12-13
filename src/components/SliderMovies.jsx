@@ -7,7 +7,7 @@ const Contenedor = styled(motion.div)`
 margin: 0 auto;
  width: 95%; 
 overflow: hidden;
-padding-bottom: 35px;
+padding-bottom: 7px;
 `
 const Slider = styled(motion.div)`
 cursor: grab;
@@ -15,7 +15,7 @@ display: flex;
 gap: 18px;
 `
 
-function SliderMovies({peliculasArray}) {
+function SliderMovies({peliculasArray, obtenerPelicula}) {
   return (
     <Contenedor>
       <Slider drag='x' dragConstraints={{right:0, left:-3353}}>
@@ -23,6 +23,7 @@ function SliderMovies({peliculasArray}) {
         <Pelicula 
         movie={movie}
         key={movie.id}
+        obtenerPelicula={obtenerPelicula}
         />))}
       </Slider>
       

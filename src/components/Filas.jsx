@@ -1,25 +1,33 @@
 import styled from "styled-components"
 import SliderMovies from './SliderMovies'
 import { useState, useEffect } from "react"
-import solicitudes from "../solicitudes"
+
+
 
 const Texto = styled.h3`
 color: #e5e5e5;
 font-weight: 700;
 text-transform: uppercase;
 font-size: 16px;
-margin-left: 45px;
+margin-left: 20px;
+
+@media (min-width:768px) {
+  margin-left: 45px;
+
+}
 
 `
-function Filas({titulo, fetchUrl}) {
+function Filas({titulo, fetchUrl, obtenerPelicula}) {
     const [peliculasArray, setPeliculasArray] = useState([])
+    
 
+    // .map(video => video.id.videoId);
+    
     const URL_BASE= 'https://api.themoviedb.org/3'
 
     useEffect(() => {
         async function cargarPeliculas(){
             const url = `${URL_BASE}${fetchUrl}`
-            console.log(url)
             const respuesta = await fetch(url)
             const resultado = await respuesta.json()
             const peliculas = resultado.results
@@ -30,13 +38,16 @@ function Filas({titulo, fetchUrl}) {
         }
         cargarPeliculas()
       }, []); 
+
   return (
     <div>
       <Texto>{titulo}</Texto>
       <SliderMovies 
-        peliculasArray= {peliculasArray} />
-    </div>
+        peliculasArray= {peliculasArray}
+        obtenerPelicula ={obtenerPelicula} />
+   </div>
   )
-}
+  }
+
 
 export default Filas

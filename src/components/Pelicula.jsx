@@ -6,6 +6,7 @@ const MarcoPeli  = styled(motion.div)`
     min-height: 200px;
     max-height: 200px;
     min-width:250px;
+    max-width: 250px;
     border-radius:8px;
     transition-property: all;
     transition-duration: .4s;
@@ -27,13 +28,16 @@ position: relative;
 
 
 
-function Pelicula({movie}) {
+function Pelicula({movie, obtenerPelicula}) {
 
   
   return (
   
-    <MarcoPeli >
-      <ImagenPelicula src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
+    <MarcoPeli 
+      onDoubleClick={ ()=> obtenerPelicula(movie)}>
+      <ImagenPelicula
+      
+       src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
       
     </MarcoPeli>
 
