@@ -15,7 +15,8 @@ display: flex;
 gap: 18px;
 `
 
-function SliderMovies({peliculasArray, obtenerPelicula}) {
+function SliderMovies({peliculasArray}) {
+
   return (
     <Contenedor>
       <Slider drag='x' dragConstraints={{right:0, left:-3353}}>
@@ -23,7 +24,6 @@ function SliderMovies({peliculasArray, obtenerPelicula}) {
         <Pelicula 
         movie={movie}
         key={movie.id}
-        obtenerPelicula={obtenerPelicula}
         />))}
       </Slider>
       

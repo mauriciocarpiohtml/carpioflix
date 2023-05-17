@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import ContextPeliculas from '../context/ContextMovie'
 import solicitudes from '../solicitudes'
 
 const ContenedorHeader = styled.div`
@@ -146,7 +147,9 @@ margin-top: 15px;
 
 
 
-function Header({obtenerPelicula, agregarLista}) {
+function Header() {
+    const {obtenerPelicula, agregarLista} = useContext(ContextPeliculas)
+
     const [objetoBanner, setObjetoBanner] = useState({})
 
     const URL_BASE= 'https://api.themoviedb.org/3'
@@ -156,6 +159,7 @@ function Header({obtenerPelicula, agregarLista}) {
             const url = `${URL_BASE}${solicitudes.populares}`
             const respuesta = await fetch(url)
             const resultado = await respuesta.json()
+            console.log(resultado)
             const numeroAleatorio = parseInt(Math.random()*15)
             const pelicula = resultado.results[numeroAleatorio]
             setObjetoBanner(pelicula)

@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import SliderMovies from './SliderMovies'
-import { useState, useEffect } from "react"
-
-
+import { useState, useEffect} from "react"
 
 const Texto = styled.h3`
 color: #e5e5e5;
@@ -17,12 +15,11 @@ margin-left: 20px;
 }
 
 `
-function Filas({titulo, fetchUrl, obtenerPelicula}) {
-    const [peliculasArray, setPeliculasArray] = useState([])
-    
+function Filas({titulo, fetchUrl}) {
 
-    // .map(video => video.id.videoId);
-    
+   
+
+    const [peliculasArray, setPeliculasArray] = useState([])
     const URL_BASE= 'https://api.themoviedb.org/3'
 
     useEffect(() => {
@@ -42,9 +39,7 @@ function Filas({titulo, fetchUrl, obtenerPelicula}) {
   return (
     <div>
       <Texto>{titulo}</Texto>
-      <SliderMovies 
-        peliculasArray= {peliculasArray}
-        obtenerPelicula ={obtenerPelicula} />
+      <SliderMovies peliculasArray={peliculasArray}/>
    </div>
   )
   }

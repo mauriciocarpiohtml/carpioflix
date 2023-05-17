@@ -41,7 +41,7 @@ function Navegacion() {
   return (
     <div>
         <Nav>
-            <Logo>netflix</Logo>
+            <Logo>carpioflix</Logo>
              
         </Nav>
     </div>

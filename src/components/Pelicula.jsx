@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from "framer-motion"
+import { useContext } from 'react'
+import ContextPeliculas from '../context/ContextMovie'
 
 const MarcoPeli  = styled(motion.div)`
     min-height: 200px;
@@ -28,9 +30,10 @@ position: relative;
 
 
 
-function Pelicula({movie, obtenerPelicula}) {
+function Pelicula({movie}) {
 
-  
+  const {obtenerPelicula} = useContext(ContextPeliculas)
+
   return (
   
     <MarcoPeli 

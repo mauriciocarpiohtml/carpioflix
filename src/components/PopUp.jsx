@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useContext } from 'react'
+import ContextPeliculas from '../context/ContextMovie'
+
 
 const ContenedorPop = styled.div`
   position: fixed; /* Posición fija en la pantalla */
@@ -14,9 +17,9 @@ const ContenedorPop = styled.div`
   justify-content: center;
   align-items: center;
   width: 85%;
-  height: 70vh;
+  height: 85vh;
   border-radius: 4px;
-  overflow: scroll;
+  overflow-y: auto;
 
   @media(min-width: 992px) {
     width: 50%;
@@ -28,8 +31,8 @@ const ContenedorPop = styled.div`
 
 const ImagenPopUp = styled.img`
 width: 100%;
-height: 50vh;
-object-fit: cover;
+height: 100%;
+object-fit: contain;
 padding: 0;
 margin: 0;
 
@@ -81,23 +84,24 @@ flex-direction:column;
 const TituloPelicula = styled.h3`
 text-align:center;
 margin-top:8px;
-font-size:20px;
+font-size:16px;
 font-weight:700;
 color:#ece8e8;
 margin-bottom: 0;
 
 @media(min-width:992px){
-  font-size: 24px;
+  font-size: 20px;
 }
 `
 const InfoPelicula = styled.p`
 color:#ece8e8d5;
 line-height: 1.5;
-font-size: 14px;
+font-size: 12px;
 text-align: center;
+padding: 5px;
 
 @media(min-width:992px){
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 10px;
 }
 `
@@ -153,14 +157,16 @@ const Boton = styled.div`
  `
 
 
-function PopUp({objetoPopUp, cerrarPopUp, agregarLista}) {
+function PopUp() {
+
+  const {objetoPopUp, cerrarPopUp, agregarLista} = useContext(ContextPeliculas)
 
     const{original_title, backdrop_path, overview, title, release_date} = objetoPopUp
   return (
     <ContenedorPop>
         <ContenidoPopUp>
         <ImagenPopUp
-            src={`https://image.tmdb.org/t/p/original${backdrop_path}`}/>
+            src={ `https://image.tmdb.org/t/p/original${backdrop_path}`}/>
             
             <Flex>
             
@@ -196,3 +202,7 @@ function PopUp({objetoPopUp, cerrarPopUp, agregarLista}) {
 }
 
 export default PopUp
+
+
+
+        

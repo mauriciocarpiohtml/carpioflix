@@ -1,4 +1,4 @@
-const API_KEY= '0c0e61be0331e6cfb82fb0431bd5542d'
+const API_KEY= import.meta.env.VITE_OPENAI_API_KEY
 
 // https://api.themoviedb.org/3 url base
 

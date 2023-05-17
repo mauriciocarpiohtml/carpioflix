@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import SliderMovies from './SliderMovies.jsx'
+import { useContext } from 'react'
+import ContextPeliculas from '../context/ContextMovie'
 
 
 const Texto = styled.h3`
@@ -25,13 +27,14 @@ gap: 18px;
 flex: wrap;
 `
 
-function MiLista({favoritos, obtenerPelicula}) {
+function MiLista() {
+  const {favoritos, obtenerPelicula} = useContext(ContextPeliculas)
   return (
     <div>
         <Texto>My list</Texto>
         <SliderMovies 
           peliculasArray={favoritos}
-        obtenerPelicula ={obtenerPelicula} />
+          obtenerPelicula ={obtenerPelicula} />
        
         
     </div>
