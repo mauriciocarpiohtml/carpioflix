@@ -56,7 +56,6 @@ cursor: pointer;
 
 
 function Registrarse() {
-  console.log(import.meta.env.VITE_BACKEND_URL)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()

@@ -8,7 +8,7 @@ import Navegacion from '../components/Navegacion'
 const Background = styled.div`
 width : 100vw;
 height: 100vh;
-background-image: url('src/images/headerInicio.jpg');
+background-image: url('../images/headerInicio.jpg');
 display: flex;
 justify-content: center;
 align-items: center;
