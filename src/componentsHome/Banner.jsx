@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import netflix1 from '../images/tvInicio.png'
+import netflix2 from '../images/tvInicio2.png'
 
 const ContenedorInfo = styled.div`
 padding: 25px;
@@ -39,7 +41,7 @@ function Banner() {
   return (
     <>
       <ContenedorInfo>
-         <img src='../src/images/tvInicio.png' alt='Banner Imagen tv'/>
+         <img src={netflix1} alt='Banner Imagen tv'/>
         <ContenedorTexto>
          <TituloBanner>Disfruta donde quieras</TituloBanner>
          <SubtituloBanner>Películas y series ilimitadas en tu teléfono, tablet, <br/>computadora y TV sin costo adicional.</SubtituloBanner>
@@ -52,7 +54,7 @@ function Banner() {
          <TituloBanner>Disfruta en tu TV</TituloBanner>
          <SubtituloBanner>Ve en smart TV, PlayStation, Xbox, Chromecast, <br/> Apple TV, reproductores de Blu-ray y más.</SubtituloBanner>
         </ContenedorTexto>
-        <img src='../src/images/tvInicio2.png' alt='Banner Imagen tv'/>
+        <img src={netflix2} alt='Banner Imagen tv'/>
       </ContenedorInfo>
     <LineaInferior></LineaInferior>  
     </>

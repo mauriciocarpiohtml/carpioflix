@@ -1,6 +1,7 @@
 import Navegacion from '../components/Navegacion'
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
+import banner from '../images/headerInicio.jpg'
 
 const ContenedorHome = styled.div`
 width: 90%;
@@ -12,7 +13,7 @@ margin-top: 50px;
 const Hero = styled.div`
 width: 100%;
 height: 540px;
-background-image: url('../src/images/headerInicio.jpg');
+background-image: url(${banner});
 background-size: cover;
 border-radius: 15px;
 display: flex;
