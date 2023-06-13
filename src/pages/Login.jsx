@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navegacion from '../components/Navegacion'
+import headerInicio from '../images/headerInicio.jpg'
 
 
 const Background = styled.div`
 width : 100vw;
 height: 100vh;
-background-image: url('../images/headerInicio.jpg');
+background-image: url(${headerInicio});
 display: flex;
 justify-content: center;
 align-items: center;
