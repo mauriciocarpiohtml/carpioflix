@@ -56,7 +56,7 @@ cursor: pointer;
 
 
 function Registrarse() {
-
+  console.log(import.meta.env.VITE_BACKEND_URL)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -64,12 +64,12 @@ function Registrarse() {
   async function crearUsuario(e){
     e.preventDefault()
     if(email && password == ''){
-      alert('Email y password son obligatorios maestro')
+      alert('Todos los campos son obligatorios')
       return
     }
 
     try {
-      const response = await fetch('http://localhost:3050/api/usuarios/registrar', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usuarios/registrar`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ function Registrarse() {
           body: JSON.stringify({ email, password })
       });
 
-      const data = await response.json();
+      const data = await response.json()
       
       if( data.msg === 'Usuario creado correctamente'){
         navigate('/login')

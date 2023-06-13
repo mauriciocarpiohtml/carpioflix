@@ -160,9 +160,10 @@ function Header() {
             const respuesta = await fetch(url)
             const resultado = await respuesta.json()
             console.log(resultado)
-            const numeroAleatorio = parseInt(Math.random()*15)
+            const numeroAleatorio = parseInt(Math.random()*10)
             const pelicula = resultado.results[numeroAleatorio]
             setObjetoBanner(pelicula)
+            console.log(setObjetoBanner)
             
         }
         BuscarPortada()

@@ -15,10 +15,14 @@ conectarDB()
 
 // RUTAS
 
+app.get('/', (req, res) => {
+  res.send('Hello from index')
+})
+
  app.use('/api/usuarios', usuario )
 
+const port = process.env.port
 
-
-app.listen(3050, () => {
-    console.log(`Escuchando en el puerto 3050`)
+app.listen(port, () => {
+    console.log(`Escuchando en el puerto ${port}`)
   })

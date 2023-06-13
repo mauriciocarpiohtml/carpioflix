@@ -8,7 +8,7 @@ import Navegacion from '../components/Navegacion'
 const Background = styled.div`
 width : 100vw;
 height: 100vh;
-background-image: url('../src/images/headerInicio.jpg');
+background-image: url('src/images/headerInicio.jpg');
 display: flex;
 justify-content: center;
 align-items: center;
@@ -98,7 +98,7 @@ function Login() {
       return
     }
     try {
-        const response = await fetch('http://localhost:3050/api/usuarios/login', {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usuarios/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ function Login() {
              navigate('/usuario')
          }
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 }
 
