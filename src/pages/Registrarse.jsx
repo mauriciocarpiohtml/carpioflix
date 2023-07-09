@@ -20,10 +20,14 @@ font-size: 24px;
 margin-top: 90px;
 `
 const Contenedor = styled.div`
-width: 30%;
+width: 75vw;
 display: flex;
 flex-direction: column;
 padding: 12px;
+
+@media (min-width:772px) {
+  width: 35vw;
+}
 `
 
 const Formulario = styled.form`

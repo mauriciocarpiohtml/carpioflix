@@ -5,12 +5,18 @@ import netflix2 from '../images/tvInicio2.png'
 
 const ContenedorInfo = styled.div`
 padding: 25px;
-margin-top: 25px;
+margin: 0 auto;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 10px;
 border-bottom: 2px white;
+
+@media (min-width:992px) {
+  flex-direction: row;
+  margin-top: 25px;
+}
 `
 
 const LineaInferior = styled.div`
@@ -21,8 +27,20 @@ const LineaInferior = styled.div`
 `
 
 const ContenedorTexto = styled.div`
-max-width: 65%;
+max-width: 90%;
+text-align: center;
+@media (min-width:992px) {
+  max-width: 65%;
+}
 `
+const Imagen = styled.img`
+width: 100%;
+
+@media (min-width:992px) {
+  max-width: 45%;
+}
+`
+
 
 const TituloBanner = styled.h3`
 font-size: 30px;
@@ -41,7 +59,7 @@ function Banner() {
   return (
     <>
       <ContenedorInfo>
-         <img src={netflix1} alt='Banner Imagen tv'/>
+         <Imagen src={netflix1} alt='Banner Imagen tv' width='100%'/>
         <ContenedorTexto>
          <TituloBanner>Disfruta donde quieras</TituloBanner>
          <SubtituloBanner>Películas y series ilimitadas en tu teléfono, tablet, <br/>computadora y TV sin costo adicional.</SubtituloBanner>
@@ -54,7 +72,7 @@ function Banner() {
          <TituloBanner>Disfruta en tu TV</TituloBanner>
          <SubtituloBanner>Ve en smart TV, PlayStation, Xbox, Chromecast, <br/> Apple TV, reproductores de Blu-ray y más.</SubtituloBanner>
         </ContenedorTexto>
-        <img src={netflix2} alt='Banner Imagen tv'/>
+        <Imagen src={netflix2} alt='Banner Imagen tv'/>
       </ContenedorInfo>
     <LineaInferior></LineaInferior>  
     </>

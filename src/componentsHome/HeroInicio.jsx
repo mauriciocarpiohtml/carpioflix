@@ -5,8 +5,6 @@ import banner from '../images/headerInicio.jpg'
 
 const ContenedorHome = styled.div`
 width: 90%;
-display: grid;
-margin-top: 65px;
 margin: 0 auto;
 margin-top: 50px;
 `
@@ -37,10 +35,14 @@ margin-top: 60px;
 const TextoHero = styled.h2`
 color: white;
 font-size: 54px;
-font-size: 700;
+font-size: 35px;
 margin-left: 35px;
 margin-bottom: 13px;
 padding: 0;
+
+@media (min-width:992px) {
+  font-size: 60px;
+}
 `
 
 
@@ -72,8 +74,6 @@ const Boton = styled.div`
  padding-top: 5px;
  padding-bottom: 5px;
  text-decoration: none;
- 
- 
  background-color: rgba(51, 51, 51, 0.596);
  transition: all 0.3s ease-in-out;
 
@@ -95,7 +95,7 @@ const Boton = styled.div`
 function HeroInicio() {
   return (
     <>
-      <Navegacion/>
+     <Navegacion/>
      <ContenedorHome>
         <Hero>
             <Overlay></Overlay>
@@ -111,8 +111,7 @@ function HeroInicio() {
                   </Link>
                 </ContenedorBotones>
             </ContenidoHero>
-          
-        </Hero>
+         </Hero>
      </ContenedorHome>
     </>
   )

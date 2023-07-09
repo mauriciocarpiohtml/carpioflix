@@ -28,7 +28,7 @@ position: absolute;
   top: 50;
   left: 50;
   background-color: #000000cf;
-  width: 25vw;
+  width: 75vw;
   height: 50vh;
   z-index: 10;
   border-radius: 8px;
@@ -36,6 +36,10 @@ position: absolute;
   flex-direction: column;
   align-items: center;
   padding: 25px;
+
+  @media (min-width:992px) {
+  width: 35vw;
+}
 `
 
 const Titulo = styled.h3`
@@ -115,7 +119,7 @@ function Login() {
              navigate('/usuario')
          }
     } catch (error) {
-        console.log(error)
+        alert(error)
     }
 }
 
